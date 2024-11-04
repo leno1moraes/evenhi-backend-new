@@ -27,7 +27,7 @@ public class UserController {
             userService.createUser(user);
             return ResponseEntity.ok("1");
         }catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("ERROR create user: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
         }
     }
@@ -45,18 +45,18 @@ public class UserController {
             userService.updateUser(id, user);
             return ResponseEntity.ok("1");
         }catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("ERROR update user: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
         }
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         try {
             userService.deleteUser(id);
             return ResponseEntity.ok("1");
         }catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("ERROR delete user: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
         }
     }
