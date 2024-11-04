@@ -1,1 +1,2 @@
-# evenhi-backend-new
+# EvenHi
+Sistema Gerenciador de Eventos (new)
