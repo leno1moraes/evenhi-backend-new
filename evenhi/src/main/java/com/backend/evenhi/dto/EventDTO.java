@@ -3,6 +3,8 @@ package com.backend.evenhi.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 public class EventDTO {
@@ -17,4 +19,6 @@ public class EventDTO {
     private String country;
     private Integer subscribers;
     private Long userId;
+    private Integer status;
+    private Date date;
 }

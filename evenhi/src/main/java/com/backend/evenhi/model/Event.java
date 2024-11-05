@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -57,4 +59,10 @@ public class Event {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "id", referencedColumnName = "id")
     private User user;
+
+    @Column(name = "status")
+    private Integer status;
+
+    @Column(name = "date")
+    private Date date;
 }
