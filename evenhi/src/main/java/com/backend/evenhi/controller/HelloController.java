@@ -10,4 +10,10 @@ public class HelloController {
     public String helloworld(){
         return "Olá Mundo!";
     }
+
+    @GetMapping("testeauth")
+    public String testeAuth(){
+        return "Aplicação autenticada";
+    }
+
 }

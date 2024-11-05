@@ -25,6 +25,7 @@ public class SecurityConfig {
                     .requestMatchers("/api/events/find/**").permitAll()
                     .requestMatchers("/admin/**").denyAll()
                     .requestMatchers("/user/create").permitAll()
+                    .requestMatchers("/helloworld").permitAll()
                     .anyRequest().authenticated());
         http.csrf(AbstractHttpConfigurer::disable);
         http.cors(AbstractHttpConfigurer::disable);
