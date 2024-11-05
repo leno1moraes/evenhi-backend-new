@@ -50,6 +50,8 @@ public class EventService {
                     event.setCity(eventDTO.getCity());
                     event.setCountry(eventDTO.getCountry());
                     event.setSubscribers(eventDTO.getSubscribers());
+                    event.setStatus(eventDTO.getStatus());
+                    event.setDate(eventDTO.getDate());
 
                     User user = userRepository.findById(eventDTO.getUserId())
                             .orElseThrow(() -> new RuntimeException("User not found with id " + eventDTO.getUserId()));
@@ -77,6 +79,8 @@ public class EventService {
         dto.setCountry(event.getCountry());
         dto.setSubscribers(event.getSubscribers());
         dto.setUserId(event.getUser() != null ? event.getUser().getUserId() : null);
+        dto.setStatus(event.getStatus());
+        dto.setDate(event.getDate());
         return dto;
     }
 
@@ -92,6 +96,8 @@ public class EventService {
         event.setCity(eventDTO.getCity());
         event.setCountry(eventDTO.getCountry());
         event.setSubscribers(eventDTO.getSubscribers());
+        event.setStatus(eventDTO.getStatus());
+        event.setDate(eventDTO.getDate());
 
         if (eventDTO.getUserId() != null) {
             User user = userRepository.findById(eventDTO.getUserId())
