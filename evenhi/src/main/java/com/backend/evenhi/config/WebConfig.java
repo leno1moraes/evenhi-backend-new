@@ -9,6 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     //@Value("${frontend.url}")
     private String frontendUrl = "http://localhost:8080/";
+    private String frontendUrlb = "http://localhost:8081/";
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
