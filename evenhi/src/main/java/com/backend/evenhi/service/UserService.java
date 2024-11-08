@@ -142,4 +142,13 @@ public class UserService {
         }
     }
 
+    public ResponseEntity<?> doLogout(String token){
+        try {
+            jwtUtils.revokeToken(token);
+            return ResponseEntity.ok("1");
+        }catch (Exception exception){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
