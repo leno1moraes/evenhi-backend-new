@@ -43,31 +43,25 @@ public class SecurityConfig  {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-
         http.csrf(AbstractHttpConfigurer::disable);
-        http.cors(AbstractHttpConfigurer::disable);
-
+        //http.cors(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests((requests) ->
             requests
                     .requestMatchers("/api/user/login").permitAll()
+                    /*.requestMatchers("/api/user/logout").permitAll()*/
                     .requestMatchers("/api/events/list").permitAll()
                     .requestMatchers("/api/events/find/**").permitAll()
-                    .requestMatchers("/admin/**").denyAll()
+                    /*.requestMatchers("/admin/**").denyAll()*/
                     .requestMatchers("/api/user/create").permitAll()
                     .requestMatchers("/helloworld").permitAll()
+                    .requestMatchers("/api/user/logout").permitAll()
                     .anyRequest().authenticated());
-
-
         http.sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
         http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-
         http.formLogin(withDefaults());
-
         http.httpBasic(withDefaults());
-
         return (SecurityFilterChain)http.build();
     }
 

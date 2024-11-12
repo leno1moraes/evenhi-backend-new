@@ -89,15 +89,19 @@ public class UserController {
                 String token = authHeader.substring(7); // Remove o prefixo "Bearer "
                 ResponseEntity<?> response = userService.doLogout(token);
                 if (response.getStatusCode() == HttpStatus.OK) {
-                    return ResponseEntity.ok("Logout successful");
+                    logger.info("Logout com SUCESSO!");
+                    return ResponseEntity.ok("0");
                 } else {
-                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Logout failed");
+                    logger.warn("Falha Logout 1");
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("997");
                 }
             } else {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No token provided");
+                logger.warn("Falha Logout 2");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("998");
             }
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            logger.warn("Erro Logout");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 
