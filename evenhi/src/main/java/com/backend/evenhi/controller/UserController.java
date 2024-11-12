@@ -31,10 +31,10 @@ public class UserController {
     public ResponseEntity<String> createUser(@RequestBody User user) {
         try {
             userService.createUser(user);
-            return ResponseEntity.ok("1001");
+            return ResponseEntity.ok("0");
         }catch (Exception e){
             logger.error("ERROR create user: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 
@@ -49,10 +49,10 @@ public class UserController {
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User user) {
         try {
             userService.updateUser(id, user);
-            return ResponseEntity.ok("1001");
+            return ResponseEntity.ok("0");
         }catch (Exception e){
             logger.error("ERROR update user: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 
@@ -60,10 +60,10 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         try {
             userService.deleteUser(id);
-            return ResponseEntity.ok("1001");
+            return ResponseEntity.ok("0");
         }catch (Exception e){
             logger.error("ERROR delete user: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 
@@ -74,10 +74,10 @@ public class UserController {
             if (response.getStatusCode() == HttpStatus.OK) {
                 return ResponseEntity.ok(response.getBody());
             } else {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
             }
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 

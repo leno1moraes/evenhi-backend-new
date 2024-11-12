@@ -32,10 +32,10 @@ public class EventController {
     public ResponseEntity<String> createEvent(@RequestBody EventDTO eventDTO) {
         try {
             eventService.createEvent(eventDTO);
-            return ResponseEntity.ok("1001");
+            return ResponseEntity.ok("0");
         }catch (Exception e){
             System.out.println("ERROR create event: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 
@@ -43,10 +43,10 @@ public class EventController {
     public ResponseEntity<String> updateEvent(@PathVariable Long id, @RequestBody EventDTO eventDTO) {
         try {
             eventService.updateEvent(id, eventDTO);
-            return ResponseEntity.ok("1001");
+            return ResponseEntity.ok("0");
         } catch (RuntimeException e) {
             System.out.println("ERROR update event: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 
@@ -54,10 +54,10 @@ public class EventController {
     public ResponseEntity<String> deleteEvent(@PathVariable Long id) {
         try {
             eventService.deleteEvent(id);
-            return ResponseEntity.ok("1001");
+            return ResponseEntity.ok("0");
         } catch (RuntimeException e) {
             System.out.println("ERROR delete event: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("0");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("991");
         }
     }
 
