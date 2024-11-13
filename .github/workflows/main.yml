@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Build the project with Gradle
       - name: Build with Gradle
-        run: ./gradlew clean build
+        run: ./evenhi/gradlew clean build
         env:
           CI: true
 
